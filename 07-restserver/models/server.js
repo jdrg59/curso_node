@@ -6,6 +6,7 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT
+        this.usuariosPath = '/api/usuarios';
 
         //middlewares : Funciones que se ejecutaran al levantar el servidor
         this.middlewares();
@@ -23,30 +24,8 @@ class Server{
     }
 
     routes(){
-        this.app.get('/api', (req, res) => {
-            //res.send('Hello World')
-            res.json({
-                msg: 'get API'
-            })
-          })
-        this.app.post('/api', (req, res) => {
-            //res.send('Hello World')
-            res.status(201).json({
-                msg: 'post API'
-            })
-          })
-        this.app.put('/api', (req, res) => {
-            //res.send('Hello World')
-            res.status(400).json({
-                msg: 'Put API'
-            })
-          })
-        this.app.delete('/api', (req, res) => {
-            //res.send('Hello World')
-            res.json({
-                msg: 'delete API'
-            })
-          })
+        //midleware
+        this.app.use(this.usuariosPath,require('../routes/user.routes'))
     }
     listen(){
         this.app.listen( process.env.PORT , () => {
