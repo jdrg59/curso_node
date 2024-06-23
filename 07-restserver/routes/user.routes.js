@@ -7,7 +7,7 @@ const router = Router();//llamamos funcion
 router.get('/', usuariosGet )
 
 router.post('/', usuariosPost)
-router.put('/', usuariosPut)
+router.put('/:id', usuariosPut)
 router.delete('/', usuariosDelete)
 
 module.exports = router; 
