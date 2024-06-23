@@ -19,6 +19,10 @@ class Server{
         //Cors
         this.app.use( cors());
 
+        //lectura y parseo de datos (todo dato que venga serializarlo a json)
+        this.app.use( express.json())
+
+
         //directorio publico
         this.app.use( express.static('public'));
     }

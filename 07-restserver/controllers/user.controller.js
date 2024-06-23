@@ -8,8 +8,13 @@ const usuariosGet = (req, res = response ) => {
 }
 
 const usuariosPost = (req, res = response) => {
+    //accedo a la  API la info que viene
+    const body = req.body
+
     res.status(201).json({
-        msg: 'post API'
+        msg: 'post API',
+        body
+
     })
   }
 
